@@ -1,13 +1,14 @@
 exports.typeDefs = `
 type Land {
     _id: ID
-    name: String!
-    category: String!
-    description: String!
-    instructions: String!
-    createdDate: String
-    likes: Int
-    username: String
+    user: User! 
+    city: String!
+    state: String!
+    zipcode: String!
+    country: String!
+    lat: String
+    lng: String 
+    area: String!
 }
 
 type User {
@@ -16,7 +17,7 @@ type User {
     password: String!
     email: String!
     joinDate: String
-    favorites: [Land]
+    lands: [Land]
 }
 
 type Query {
@@ -24,13 +25,13 @@ type Query {
  
     getCurrentUser: User
 }
-
+ 
 type Token {
     token: String!
 }
 
 type Mutation {
-    addLand(name: String!, description: String!, category: String!, instructions: String!, username: String): Land
+    addLand(user: String!, city: String!, state: String!, zipcode: String!, country: String, lat: String!, lng: String!, area: String!): Land
 
     signupUser(username: String!, email: String!, password: String!): Token
 

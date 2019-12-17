@@ -19,7 +19,7 @@ exports.resolvers = {
       const user = await User.findOne({
         username: currentUser.username
       }).populate({
-        path: "favorites",
+        path: "lands",
         model: "Land"
       });
 
@@ -30,15 +30,19 @@ exports.resolvers = {
   Mutation: {
     addLand: async (
       root,
-      { name, description, category, instructions, username },
+      { user, city, state, zipcode, country, lat, lng, area, prescription },
       { Land }
     ) => {
       const newLand = await new Land({
-        name,
-        description,
-        category,
-        instructions,
-        username
+        user,
+        city,
+        state,
+        zipcode,
+        country,
+        lat,
+        lng,
+        area,
+        prescription
       }).save();
       return newLand;
     },

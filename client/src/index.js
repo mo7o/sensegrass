@@ -6,7 +6,6 @@ import {
   Switch,
   Redirect
 } from "react-router-dom";
-import "./index.css";
 import App from "./Components/App";
 import Signin from "./Components/Auth/Signin";
 import Signup from "./Components/Auth/Signup";

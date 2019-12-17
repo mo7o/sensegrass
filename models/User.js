@@ -22,7 +22,7 @@ const userSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  favorites: {
+  lands: {
     type: [Schema.Types.ObjectId],
     ref: "Land"
   }
