@@ -28,21 +28,10 @@ exports.resolvers = {
   },
 
   Mutation: {
-    addLand: async (
-      root,
-      { user, city, state, zipcode, country, lat, lng, area, prescription },
-      { Land }
-    ) => {
+    addLand: async (root, { user, location }, { Land }) => {
       const newLand = await new Land({
         user,
-        city,
-        state,
-        zipcode,
-        country,
-        lat,
-        lng,
-        area,
-        prescription
+        location
       }).save();
       return newLand;
     },

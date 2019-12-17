@@ -99,7 +99,7 @@ class Signin extends React.Component {
                 }}
               </Mutation>
               <div class="notification is-white">
-                <NavLink to="/signup">Don't have an account?</NavLink>
+                <NavLink to="/signup">Don't have and account?</NavLink>
               </div>
             </div>
           </div>

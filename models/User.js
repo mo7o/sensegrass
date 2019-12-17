@@ -27,7 +27,7 @@ const userSchema = new Schema({
     ref: "Land"
   }
 });
-
+ 
 userSchema.pre("save", function(next) {
   if (!this.isModified("password")) {
     return next();

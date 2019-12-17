@@ -1,14 +1,8 @@
 exports.typeDefs = `
 type Land {
     _id: ID
-    user: User! 
-    city: String!
-    state: String!
-    zipcode: String!
-    country: String!
-    lat: String
-    lng: String 
-    area: String!
+    user: String!
+    location: String! 
 }
 
 type User {
@@ -25,13 +19,13 @@ type Query {
  
     getCurrentUser: User
 }
- 
+
 type Token {
     token: String!
 }
 
 type Mutation {
-    addLand(user: String!, city: String!, state: String!, zipcode: String!, country: String, lat: String!, lng: String!, area: String!): Land
+    addLand(location: String!, user: String!): Land
 
     signupUser(username: String!, email: String!, password: String!): Token
 

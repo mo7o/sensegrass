@@ -73,7 +73,9 @@ const NavbarAuth = ({ session }) => (
         </div>
 
         <div className="navbar-item">
-          <a className="button is-success is-rounded">+ Add Device</a>
+          <a className="button is-success is-rounded">
+            <strong>+ Add Device</strong>
+          </a>
         </div>
       </div>
     </div>

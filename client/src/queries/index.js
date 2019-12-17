@@ -1,23 +1,16 @@
 import { gql } from "apollo-boost";
 
-// Lands Queries
+// Lands queries
 export const GET_ALL_LANDS = gql`
   query {
     getAllLands {
       user
-      city
-      state
-      zipcode
-      country
-      lat
-      lng
-      area
+      location
     }
   }
 `;
 
-// TODO: Lands Mutations
-
+// Lands Mutations
 // User Queries
 
 export const GET_CURRENT_USER = gql`
