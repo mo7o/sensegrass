@@ -9,32 +9,33 @@ const createToken = (user, secret, expiresIn) => {
 
 exports.resolvers = {
   Query: {
-    getAllLands: async (root, args, { Land }) => {
-      const allLands = await Land.find();
-      return allLands;
-    },
+    // getAllLands: async (root, args, { Land }) => {
+    //   const allLands = await Land.find();
+    //   return allLands;
+    // },
     getCurrentUser: async (root, args, { currentUser, User }) => {
       if (!currentUser) return null;
 
       const user = await User.findOne({
         username: currentUser.username
-      }).populate({
-        path: "lands",
-        model: "Land"
       });
+      // .populate({
+      //   path: "lands",
+      //   model: "Land"
+      // });
 
       return user;
     }
   },
 
   Mutation: {
-    addLand: async (root, { user, location }, { Land }) => {
-      const newLand = await new Land({
-        user,
-        location
-      }).save();
-      return newLand;
-    },
+    // addLand: async (root, { user, location }, { Land }) => {
+    //   const newLand = await new Land({
+    //     user,
+    //     location
+    //   }).save();
+    //   return newLand;
+    // },
 
     signupUser: async (root, { username, email, password }, { User }) => {
       const user = await User.findOne({ username: username });

@@ -7,8 +7,7 @@ const userSchema = new Schema({
     type: String,
     required: true,
     unique: true,
-    trim: true,
-    lowercase: true
+    trim: true
   },
   password: {
     type: String,
@@ -18,16 +17,12 @@ const userSchema = new Schema({
     type: String,
     required: true
   },
-  joinDate: {
-    type: Date,
-    default: Date.now
-  },
   lands: {
-    type: [Schema.Types.ObjectId],
-    ref: "Land"
+    type: String
+    // required: true
   }
 });
- 
+
 userSchema.pre("save", function(next) {
   if (!this.isModified("password")) {
     return next();

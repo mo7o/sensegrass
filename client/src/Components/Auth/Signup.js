@@ -34,7 +34,7 @@ class Signup extends React.Component {
       localStorage.setItem("token", data.signupUser.token);
       await this.props.refetch();
       this.clearState();
-      this.props.history.push("/");
+      this.props.history.push("/select-field");
     });
   };
 
@@ -48,90 +48,176 @@ class Signup extends React.Component {
   render() {
     const { username, email, password, passwordConfirmation } = this.state;
 
-    return (
-      <div className="container">
-        <div className="columns">
-          <div className="column"></div>
-          <div className="column">
-            <div className="box has-text-centered">
-              <h1 className="title">Signup</h1>
-              <Mutation
-                mutation={SIGNUP_USER}
-                variables={{ username, email, password }}
-              >
-                {(signupUser, { data, loading, error }) => {
-                  return (
-                    <form
-                      className="form"
-                      onSubmit={event => this.handleSubmit(event, signupUser)}
-                    >
-                      <div class="field">
-                        <div class="control">
-                          <input
-                            type="text"
-                            name="username"
-                            placeholder="Username"
-                            value={username}
-                            onChange={this.handleChange}
-                            className="input is-success is-rounded"
-                          />
-                        </div>
-                      </div>
-                      <div class="field">
-                        <div class="control">
-                          <input
-                            type="email"
-                            name="email"
-                            placeholder="Email"
-                            value={email}
-                            onChange={this.handleChange}
-                            className="input is-success is-rounded"
-                          />
-                        </div>
-                      </div>
-                      <div class="field">
-                        <div class="control">
-                          <input
-                            type="password"
-                            name="password"
-                            placeholder="Password"
-                            value={password}
-                            onChange={this.handleChange}
-                            className="input is-success is-rounded"
-                          />
-                        </div>
-                      </div>
-                      <div class="field">
-                        <div class="control">
-                          <input
-                            type="password"
-                            name="passwordConfirmation"
-                            placeholder="Confirm Password"
-                            value={passwordConfirmation}
-                            onChange={this.handleChange}
-                            className="input is-success is-rounded"
-                          />
-                        </div>
-                      </div>
-                      <button
-                        type="submit"
-                        className="button is-success is-rounded"
-                        disabled={loading || this.validateForm()}
-                      >
-                        Submit
-                      </button>
-                      {error && <p error={error}></p>}
-                    </form>
-                  );
-                }}
-              </Mutation>
+    // return (
+    //   <div className="container">
+    //     <div className="columns">
+    //       <div className="column"></div>
+    //       <div className="column">
+    //         <div className="box has-text-centered">
+    //           <h1 className="title">Signup</h1>
+    //           <Mutation
+    //             mutation={SIGNUP_USER}
+    //             variables={{ username, email, password }}
+    //           >
+    //             {(signupUser, { data, loading, error }) => {
+    //               return (
+    //                 <form
+    //                   className="form"
+    //                   onSubmit={event => this.handleSubmit(event, signupUser)}
+    //                 >
+    //                   <div class="field">
+    //                     <div class="control">
+    //                       <input
+    //                         type="text"
+    //                         name="username"
+    //                         placeholder="Username"
+    //                         value={username}
+    //                         onChange={this.handleChange}
+    //                         className="input is-success is-rounded"
+    //                       />
+    //                     </div>
+    //                   </div>
+    //                   <div class="field">
+    //                     <div class="control">
+    //                       <input
+    //                         type="email"
+    //                         name="email"
+    //                         placeholder="Email"
+    //                         value={email}
+    //                         onChange={this.handleChange}
+    //                         className="input is-success is-rounded"
+    //                       />
+    //                     </div>
+    //                   </div>
+    //                   <div class="field">
+    //                     <div class="control">
+    //                       <input
+    //                         type="password"
+    //                         name="password"
+    //                         placeholder="Password"
+    //                         value={password}
+    //                         onChange={this.handleChange}
+    //                         className="input is-success is-rounded"
+    //                       />
+    //                     </div>
+    //                   </div>
+    //                   <div class="field">
+    //                     <div class="control">
+    //                       <input
+    //                         type="password"
+    //                         name="passwordConfirmation"
+    //                         placeholder="Confirm Password"
+    //                         value={passwordConfirmation}
+    //                         onChange={this.handleChange}
+    //                         className="input is-success is-rounded"
+    //                       />
+    //                     </div>
+    //                   </div>
+    //                   <button
+    //                     type="submit"
+    //                     className="button is-success is-rounded"
+    //                     disabled={loading || this.validateForm()}
+    //                   >
+    //                     Submit
+    //                   </button>
+    //                   {error && <p error={error}></p>}
+    //                 </form>
+    //               );
+    //             }}
+    //           </Mutation>
 
-              <div class="notification  is-white">
-                <NavLink to="/signin">Already have an account?</NavLink>
-              </div>
+    //           <div class="notification  is-white">
+    //             <NavLink to="/signin">Already have an account?</NavLink>
+    //           </div>
+    //         </div>
+    //       </div>
+    //       <div className="column"></div>
+    //     </div>
+    //   </div>
+    // );
+
+    return (
+      <div className="body-auth">
+        <div class="form-block w-form">
+          <div class="div-block">
+            <div class="div-block-2">
+              <img
+                src={require("../../assets/images/Sensegrass-Logo-1.png")}
+                width="87"
+                alt=""
+                class="image"
+              />
+            </div>
+            <div class="div-block-3">
+              <h1 class="heading">SenseGrass</h1>
             </div>
           </div>
-          <div className="column"></div>
+          <Mutation
+            mutation={SIGNUP_USER}
+            variables={{ username, email, password }}
+          >
+            {(signupUser, { data, loading, error }) => {
+              return (
+                <form
+                  class="form"
+                  onSubmit={event => this.handleSubmit(event, signupUser)}
+                >
+                  <label for="name" class="field-label">
+                    Username
+                  </label>
+                  <input
+                    type="text"
+                    class="w-input-auth"
+                    name="username"
+                    value={username}
+                    onChange={this.handleChange}
+                  />
+                  <label for="name" class="field-label">
+                    Email ID
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={email}
+                    onChange={this.handleChange}
+                    class="w-input-auth"
+                  />
+                  <label for="password" class="field-label">
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    class="w-input-auth"
+                    name="password"
+                    value={password}
+                    onChange={this.handleChange}
+                  />
+                  <label for="password" class="field-label">
+                    Confirm Password
+                  </label>
+                  <input
+                    type="password"
+                    name="passwordConfirmation"
+                    value={passwordConfirmation}
+                    onChange={this.handleChange}
+                    class="w-input-auth"
+                  />
+
+                  <button
+                    type="submit"
+                    class="button-auth w-button"
+                    disabled={loading || this.validateForm()}
+                  >
+                    Signup
+                  </button>
+                  {error && <p error={error}></p>}
+                </form>
+              );
+            }}
+          </Mutation>
+          <div class="notification has-text-centered is-white">
+            <NavLink to="/signin">Already have an account?</NavLink>
+          </div>
         </div>
       </div>
     );

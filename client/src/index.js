@@ -1,20 +1,16 @@
 import React, { Fragment } from "react";
 import ReactDOM from "react-dom";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Redirect
-} from "react-router-dom";
-import "./index.css";
-import App from "./Components/App";
-import Signin from "./Components/Auth/Signin";
-import Signup from "./Components/Auth/Signup";
-import withSession from "./Components/withSession";
-import Navbar from "./Components/Navbar";
-
+import { BrowserRouter as Router } from "react-router-dom";
+import { observer, Provider } from "mobx-react";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
+
+import App from "./Components/App";
+import withSession from "./Components/withSession";
+import Navbar from "./Components/Navbar";
+import store from "./store";
+
+import "./assets/style/default.scss";
 
 const client = new ApolloClient({
   uri: "http://localhost:4444/graphql",
@@ -40,19 +36,16 @@ const client = new ApolloClient({
   }
 });
 
-const Root = ({ refetch, session }) => (
+const Root = observer(({ refetch, session }) => (
   <Router>
-    <Fragment>
-      <Navbar session={session} />
-      <Switch>
-        <Route path="/" exact component={App} />
-        <Route path="/signin" render={() => <Signin refetch={refetch} />} />
-        <Route path="/signup" render={() => <Signup refetch={refetch} />} />
-        <Redirect to="/" />
-      </Switch>
-    </Fragment>
+    <Provider {...store}>
+      <Fragment>
+        <Navbar session={session} />
+        <App refetch={refetch} />
+      </Fragment>
+    </Provider>
   </Router>
-);
+));
 
 const RootWithSession = withSession(Root);
 

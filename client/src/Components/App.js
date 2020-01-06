@@ -1,56 +1,35 @@
 import React from "react";
+import { observer, inject } from "mobx-react";
+import { withRouter, Switch, Route, Redirect } from "react-router-dom";
+
+import Dashboard from "./Dashboard/Dashboard";
+import Data from "./Data/Data";
+import Map from "./Map/Map";
+import MapDrawing from "./MapDrawing/MapDrawing";
+import Signin from "./Auth/Signin";
+import Signup from "./Auth/Signup";
+
 import "bulma/css/bulma.css";
+import "./App.scss";
 
-import { Query } from "react-apollo";
-import { GET_ALL_LANDS } from "../queries";
-
-function App() {
+function App({ refetch }) {
   return (
-    <div className="container has-text-centered">
-      {/* <h1 className="title">Home</h1> */}
-      <Query query={GET_ALL_LANDS}>
-        {({ data, loading, error }) => {
-          if (loading)
-            return (
-              <div>
-                <button class="button is-white is-loading">Loading</button>
-              </div>
-            );
-          if (error) return <div>Error..</div>;
-          console.log(data);
-
-          return (
-            <div className="columns" style={{ marginTop: 40 }}>
-              <div className="column">
-                <div className="hero is-success is-large">
-                  <div class="hero-body">
-                    <div class="container">
-                      <h1 class="title">Field Insights</h1>
-                      <h2 class="subtitle">Field Details</h2>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="column">
-                <div class="box">
-                  <iframe
-                    width="600"
-                    height="600"
-                    id="gmap_canvas"
-                    src="https://maps.google.com/maps?q=santiago&t=&z=11&ie=UTF8&iwloc=&output=embed"
-                    frameborder="0"
-                    scrolling="no"
-                    marginheight="0"
-                    marginwidth="0"
-                  ></iframe>
-                </div>
-              </div>
-            </div>
-          );
-        }}
-      </Query>
+    <div>
+      <Switch>
+        <Route path="/" exact component={Dashboard} />
+        <Route path="/data" component={Data} />
+        <Route path="/map" component={Map} />
+        <Route
+          path="/select-field"
+          // component={MapDrawing}
+          render={() => <MapDrawing refetch={refetch} />}
+        />
+        <Route path="/signin" render={() => <Signin refetch={refetch} />} />
+        <Route path="/signup" render={() => <Signup refetch={refetch} />} />
+        <Redirect to="/" />
+      </Switch>
     </div>
   );
 }
 
-export default App;
+export default inject("mapStore")(withRouter(observer(App)));

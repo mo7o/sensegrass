@@ -1,14 +1,15 @@
 import { gql } from "apollo-boost";
 
 // Lands queries
-export const GET_ALL_LANDS = gql`
-  query {
-    getAllLands {
-      user
-      location
-    }
-  }
-`;
+// export const GET_ALL_LANDS = gql`
+//   query {
+//     getAllLands {
+//       _id
+//       user
+//       location
+//     }
+//   }
+// `;
 
 // Lands Mutations
 // User Queries
@@ -18,7 +19,6 @@ export const GET_CURRENT_USER = gql`
     getCurrentUser {
       username
       email
-      joinDate
     }
   }
 `;

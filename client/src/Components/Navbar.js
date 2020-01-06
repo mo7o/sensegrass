@@ -2,27 +2,28 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import Signout from "../Components/Auth/Signout";
 
+import "./Navbar.scss";
+
 const Navbar = ({ session }) => (
-  <nav className="navbar" role="navigation" aria-label="main navigation">
+  <React.Fragment>
     {session && session.getCurrentUser ? (
       <NavbarAuth session={session} />
-    ) : (
-      <NavbarUnAuth />
-    )}
-  </nav>
+    ) : null}
+  </React.Fragment>
 );
 
 const NavbarAuth = ({ session }) => (
-  <React.Fragment>
+  <nav className="navbar" role="navigation" aria-label="main navigation">
     <div className="navbar-brand">
       <NavLink className="navbar-item" to="/" exact>
         <img
           src="http://sensegrass.com/images/Sensegrass-Logo-1.png"
           width="30"
+          alt=""
         />
       </NavLink>
 
-      <a
+      <span
         role="button"
         className="navbar-burger burger"
         aria-label="menu"
@@ -32,20 +33,17 @@ const NavbarAuth = ({ session }) => (
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
-      </a>
+      </span>
     </div>
 
     <div id="navbarBasicExample" className="navbar-menu">
       <div className="navbar-start">
         <div className="field navbar-item">
-          <div className="control">
-            <input
-              className="input is-success is-rounded"
-              type="text"
-              placeholder="Ask SANA (Your personal Agronomist)"
-              style={{ width: 400 }}
-            />
-          </div>
+          <input
+            className="input text-field w-input"
+            type="text"
+            placeholder="Ask SANA (Your personal Agronomist)"
+          />
         </div>
       </div>
       <div className="navbar-end">
@@ -60,49 +58,47 @@ const NavbarAuth = ({ session }) => (
         </NavLink>
 
         <div className="navbar-item has-dropdown is-hoverable">
-          <a className="navbar-link">Account</a>
+          <span className="navbar-link">Account</span>
 
           <div className="navbar-dropdown">
             <NavLink to="/settings" className="navbar-item">
               Settings
             </NavLink>
-            <a className="navbar-item">
+            <span className="navbar-item">
               <Signout />
-            </a>
+            </span>
           </div>
         </div>
-
         <div className="navbar-item">
-          <a className="button is-success is-rounded">
-            <strong>+ Add Device</strong>
-          </a>
+          <span className="add-device">+ Add Device</span>
         </div>
       </div>
     </div>
-  </React.Fragment>
+  </nav>
 );
 
-const NavbarUnAuth = () => (
-  <div className="navbar-brand">
-    <NavLink className="navbar-item" to="/" exact>
-      <img
-        src="http://sensegrass.com/images/Sensegrass-Logo-1.png"
-        width="30"
-      />
-    </NavLink>
+// const NavbarUnAuth = () => (
+//   <div className="navbar-brand">
+//     <NavLink className="navbar-item" to="/" exact>
+//       <img
+//         src="http://sensegrass.com/images/Sensegrass-Logo-1.png"
+//         width="30"
+//         alt=""
+//       />
+//     </NavLink>
 
-    <a
-      role="button"
-      className="navbar-burger burger"
-      aria-label="menu"
-      aria-expanded="false"
-      data-target="navbarBasicExample"
-    >
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-);
+//     <span
+//       role="button"
+//       className="navbar-burger burger"
+//       aria-label="menu"
+//       aria-expanded="false"
+//       data-target="navbarBasicExample"
+//     >
+//       <span aria-hidden="true"></span>
+//       <span aria-hidden="true"></span>
+//       <span aria-hidden="true"></span>
+//     </span>
+//   </div>
+// );
 
 export default Navbar;
