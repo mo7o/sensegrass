@@ -2,7 +2,7 @@ import React from "react";
 import { LoadScript, GoogleMap, DrawingManager } from "@react-google-maps/api";
 import { Link } from "react-router-dom";
 
-import "./MapDrawing.scss";
+// import "./MapDrawing.scss";
 
 function MapDrawing() {
   const onLoad = drawingManager => {
@@ -12,7 +12,7 @@ function MapDrawing() {
   const onPolygonComplete = polygon => {
     console.log(polygon);
   };
-
+ 
   return (
     <div className="main" style={{ backgroundColor: "#EEEEEE" }}>
       <div className="map-drawing" style={{ height: "70%" }}>

@@ -2,13 +2,17 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const landSchema = new Schema({
-  user: {
-    type: String,
-    required: true
+  username: {
+    type: String
   },
-  location: {
-    type: String,
-    required: true
+  lat: {
+    type: Array
+  },
+  lng: {
+    type: Array
+  },
+  polygonArea: {
+    type: Number
   }
 });
 

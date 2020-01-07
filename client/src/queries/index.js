@@ -12,6 +12,28 @@ import { gql } from "apollo-boost";
 // `;
 
 // Lands Mutations
+
+export const ADD_LAND = gql`
+  mutation(
+    $lat: [Float]
+    $lng: [Float]
+    $username: String
+    $polygonArea: Float
+  ) {
+    addLand(
+      lat: $lat
+      lng: $lng
+      username: $username
+      polygonArea: $polygonArea
+    ) {
+      lat
+      lng
+      username
+      polygonArea
+    }
+  }
+`;
+
 // User Queries
 
 export const GET_CURRENT_USER = gql`

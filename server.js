@@ -6,7 +6,7 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config({ path: "variables.env" });
 
 // import schemas
-// const Land = require("./models/Land");
+const Land = require("./models/Land");
 const User = require("./models/User");
 
 // Bring in graphql-express middlewares
@@ -67,7 +67,7 @@ app.use(
   bodyParser.json(),
   graphqlExpress(({ currentUser }) => ({
     schema,
-    context: { User, currentUser }
+    context: { User, Land, currentUser }
   }))
 );
 

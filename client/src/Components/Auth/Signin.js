@@ -44,73 +44,6 @@ class Signin extends React.Component {
     return isInvalid;
   };
 
-  // render() {
-  //   const { username, password } = this.state;
-
-  //   return (
-  //     <div className="container">
-  //       <div className="columns">
-  //         <div className="column"></div>
-  //         <div className="column">
-  //           <div className="box has-text-centered">
-  //             <h1 className="title">Signin</h1>
-  //             <Mutation
-  //               mutation={SIGNIN_USER}
-  //               variables={{ username, password }}
-  //             >
-  //               {(SigninUser, { data, loading, error }) => {
-  //                 return (
-  //                   <form
-  //                     className="form"
-  //                     onSubmit={event => this.handleSubmit(event, SigninUser)}
-  //                   >
-  //                     <div class="field">
-  //                       <div class="control">
-  //                         <input
-  //                           type="text"
-  //                           name="username"
-  //                           placeholder="Username"
-  //                           value={username}
-  //                           onChange={this.handleChange}
-  //                           className="input is-success is-rounded"
-  //                         />
-  //                       </div>
-  //                     </div>
-  //                     <div class="field">
-  //                       <div class="control">
-  //                         <input
-  //                           type="password"
-  //                           name="password"
-  //                           placeholder="Password"
-  //                           value={password}
-  //                           onChange={this.handleChange}
-  //                           className="input is-success is-rounded"
-  //                         />
-  //                       </div>
-  //                     </div>
-  //                     <button
-  //                       type="submit"
-  //                       className="button is-success is-rounded"
-  //                       disabled={loading || this.validateForm()}
-  //                     >
-  //                       Submit
-  //                     </button>
-  //                     {error && <p error={error}></p>}
-  //                   </form>
-  //                 );
-  //               }}
-  //             </Mutation>
-  //             <div class="notification is-white">
-  //               <NavLink to="/signup">Don't have an account?</NavLink>
-  //             </div>
-  //           </div>
-  //         </div>
-  //         <div className="column"></div>
-  //       </div>
-  //     </div>
-  //   );
-  // }
-
   render() {
     const { username, password } = this.state;
 
@@ -157,9 +90,7 @@ class Signin extends React.Component {
                     value={password}
                     onChange={this.handleChange}
                   />
-                  {/* <a href="../app/dashboard.html" class="button w-button">
-                Login
-              </a> */}
+
                   <button
                     type="submit"
                     class="button-auth w-button"

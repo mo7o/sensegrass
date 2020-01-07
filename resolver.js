@@ -18,24 +18,25 @@ exports.resolvers = {
 
       const user = await User.findOne({
         username: currentUser.username
+      }).populate({
+        path: "lands",
+        model: "Land"
       });
-      // .populate({
-      //   path: "lands",
-      //   model: "Land"
-      // });
 
       return user;
     }
   },
 
   Mutation: {
-    // addLand: async (root, { user, location }, { Land }) => {
-    //   const newLand = await new Land({
-    //     user,
-    //     location
-    //   }).save();
-    //   return newLand;
-    // },
+    addLand: async (root, { username, lat, lng, polygonArea }, { Land }) => {
+      const newLand = await new Land({
+        username,
+        lat,
+        lng,
+        polygonArea
+      }).save();
+      return newLand;
+    },
 
     signupUser: async (root, { username, email, password }, { User }) => {
       const user = await User.findOne({ username: username });

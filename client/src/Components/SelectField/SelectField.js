@@ -1,37 +1,3 @@
-// import React, { Component } from "react";
-// import MapGL from "react-map-gl";
-
-// const MAPBOX_TOKEN =
-//   "pk.eyJ1IjoibW9oaXRtb2pvIiwiYSI6ImNrNHhyN3BtczAyeTQzbmw1bmxzcmdpbnYifQ.mIcgJEcMJClq40PmDeF5NA"; // Set your mapbox token here
-
-// export default class MapDrawing extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       viewport: {
-//         latitude: 37.8,
-//         longitude: -122.4,
-//         zoom: 14,
-//         bearing: 0,
-//         pitch: 0
-//       }
-//     };
-//   }
-
-//   render() {
-//     return (
-//       <MapGL
-//         {...this.state.viewport}
-//         width="100vw"
-//         height="100vh"
-//         mapStyle="mapbox://styles/mapbox/dark-v9"
-//         onViewportChange={viewport => this.setState({ viewport })}
-//         mapboxApiAccessToken={MAPBOX_TOKEN}
-//       />
-//     );
-//   }
-// }
-
 import React, { Component } from "react";
 import MapGL, { GeolocateControl } from "react-map-gl";
 import { Editor, EditorModes } from "react-map-gl-draw";
@@ -40,12 +6,12 @@ import { observer, inject } from "mobx-react";
 import ControlPanel from "./control-panel";
 import { getFeatureStyle, getEditHandleStyle } from "./style";
 
-import "./MapDrawing.scss";
+import "./SelectField.scss";
 
 const TOKEN =
   "pk.eyJ1IjoibW9oaXRtb2pvIiwiYSI6ImNrNHhyN3BtczAyeTQzbmw1bmxzcmdpbnYifQ.mIcgJEcMJClq40PmDeF5NA"; // Set your mapbox token here
 
-class MapDrawing extends Component {
+class SelectField extends Component {
   constructor(props) {
     super(props);
     this._editorRef = null;
@@ -124,6 +90,7 @@ class MapDrawing extends Component {
       <ControlPanel
         containerComponent={this.props.containerComponent}
         polygon={polygon}
+        session={this.props.session}
       />
     );
   };
@@ -163,4 +130,4 @@ class MapDrawing extends Component {
   }
 }
 
-export default inject("mapStore")(observer(MapDrawing));
+export default inject("mapStore")(observer(SelectField));

@@ -1,11 +1,17 @@
 exports.typeDefs = `
 
+type Land {
+    lat: [Float]
+    lng: [Float]
+    username: String
+    polygonArea: Float
+}
+
 type User {
     _id: ID
     username: String! @unique
     password: String!
-    email: String! 
-    lands: String
+    email: String!  
 }
 
 type Query { 
@@ -21,6 +27,9 @@ type Mutation {
     signupUser(username: String!, email: String!, password: String!): Token
 
     signinUser(username: String!, password: String!): Token
+
+    addLand(lat: [Float], lng: [Float], username: String, polygonArea: Float): Land
+
 }
 
 `;

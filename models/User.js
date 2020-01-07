@@ -16,10 +16,6 @@ const userSchema = new Schema({
   email: {
     type: String,
     required: true
-  },
-  lands: {
-    type: String
-    // required: true
   }
 });
 

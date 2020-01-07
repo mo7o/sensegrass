@@ -5,14 +5,14 @@ import { withRouter, Switch, Route, Redirect } from "react-router-dom";
 import Dashboard from "./Dashboard/Dashboard";
 import Data from "./Data/Data";
 import Map from "./Map/Map";
-import MapDrawing from "./MapDrawing/MapDrawing";
+import SelectField from "./SelectField/SelectField";
 import Signin from "./Auth/Signin";
 import Signup from "./Auth/Signup";
 
 import "bulma/css/bulma.css";
 import "./App.scss";
-
-function App({ refetch }) {
+ 
+function App({ refetch, session }) {
   return (
     <div>
       <Switch>
@@ -21,8 +21,7 @@ function App({ refetch }) {
         <Route path="/map" component={Map} />
         <Route
           path="/select-field"
-          // component={MapDrawing}
-          render={() => <MapDrawing refetch={refetch} />}
+          render={() => <SelectField session={session} />}
         />
         <Route path="/signin" render={() => <Signin refetch={refetch} />} />
         <Route path="/signup" render={() => <Signup refetch={refetch} />} />

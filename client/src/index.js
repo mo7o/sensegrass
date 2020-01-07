@@ -41,7 +41,7 @@ const Root = observer(({ refetch, session }) => (
     <Provider {...store}>
       <Fragment>
         <Navbar session={session} />
-        <App refetch={refetch} />
+        <App refetch={refetch} session={session} />
       </Fragment>
     </Provider>
   </Router>
