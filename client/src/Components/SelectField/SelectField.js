@@ -7,7 +7,7 @@ import ControlPanel from "./control-panel";
 import { getFeatureStyle, getEditHandleStyle } from "./style";
 
 import "./SelectField.scss";
-
+ 
 const TOKEN =
   "pk.eyJ1IjoibW9oaXRtb2pvIiwiYSI6ImNrNHhyN3BtczAyeTQzbmw1bmxzcmdpbnYifQ.mIcgJEcMJClq40PmDeF5NA"; // Set your mapbox token here
 
@@ -91,6 +91,7 @@ class SelectField extends Component {
         containerComponent={this.props.containerComponent}
         polygon={polygon}
         session={this.props.session}
+        refetch={this.props.refetch}
       />
     );
   };

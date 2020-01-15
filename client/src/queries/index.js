@@ -1,15 +1,17 @@
 import { gql } from "apollo-boost";
 
 // Lands queries
-// export const GET_ALL_LANDS = gql`
-//   query {
-//     getAllLands {
-//       _id
-//       user
-//       location
-//     }
-//   }
-// `;
+export const GET_USER_LAND = gql`
+  query($username: String) {
+    getUserLand(username: $username) {
+      _id
+      username
+      lat
+      lng
+      polygonArea
+    }
+  }
+`;
 
 // Lands Mutations
 
@@ -29,6 +31,17 @@ export const ADD_LAND = gql`
       lat
       lng
       username
+      polygonArea
+    }
+  }
+`;
+
+export const UPDATE_USER_LAND = gql`
+  mutation($_id: ID!, $lat: [Float], $lng: [Float], $polygonArea: Float) {
+    updateUserLand(_id: $_id, lat: $lat, lng: $lng, polygonArea: $polygonArea) {
+      _id
+      lat
+      lng
       polygonArea
     }
   }

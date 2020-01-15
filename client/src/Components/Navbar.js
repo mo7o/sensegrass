@@ -48,7 +48,9 @@ const NavbarAuth = ({ session }) => (
       </div>
       <div className="navbar-end">
         <div className="navbar-item">
-          Hi, {session.getCurrentUser.username}!
+          <span style={{ color: "rgb(20, 194, 58)" }}>
+            Hi, {session.getCurrentUser.username}!
+          </span>
         </div>
         <NavLink to="/" exact className="navbar-item">
           Dashboard

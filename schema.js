@@ -1,6 +1,7 @@
 exports.typeDefs = `
-
+ 
 type Land {
+    _id: ID
     lat: [Float]
     lng: [Float]
     username: String
@@ -16,6 +17,7 @@ type User {
 
 type Query { 
     getCurrentUser: User
+    getUserLand(username: String): Land
 }
 
 type Token {
@@ -29,6 +31,8 @@ type Mutation {
     signinUser(username: String!, password: String!): Token
 
     addLand(lat: [Float], lng: [Float], username: String, polygonArea: Float): Land
+
+    updateUserLand(_id:ID!, lat: [Float], lng: [Float], polygonArea: Float): Land
 
 }
 

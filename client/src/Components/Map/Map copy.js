@@ -1,76 +1,99 @@
-import React, { useState, useRef, useCallback } from "react";
-import { LoadScript, GoogleMap, Polygon } from "@react-google-maps/api";
+import React from "react";
+import ReactMapGL, { Layer } from "react-map-gl";
 
-import "./Map.scss";
+import { GET_USER_LAND } from "../../queries";
+import { Query } from "react-apollo";
 
-function Map() {
-  // Store Polygon path in state
-  const [path, setPath] = useState([
-    { lat: 52.529354757241045, lng: 13.39777521610256 },
-    { lat: 52.52679620676139, lng: 13.322930855750997 },
-    { lat: 52.50167198140832, lng: 13.323274178504903 },
-    { lat: 52.49958199471234, lng: 13.40052179813381 }
-  ]);
+const userPolygon = {
+  id: "field",
+  type: "line",
+  layout: {
+    "line-join": "round",
+    "line-cap": "round"
+  },
+  paint: {
+    "line-color": "#E2C233",
+    "line-width": 4
+  }
+};
 
-  // Define refs for Polygon instance and listeners
-  const polygonRef = useRef(null);
-  const listenersRef = useRef([]);
+const TOKEN =
+  "pk.eyJ1IjoibW9oaXRtb2pvIiwiYSI6ImNrNHhyN3BtczAyeTQzbmw1bmxzcmdpbnYifQ.mIcgJEcMJClq40PmDeF5NA";
 
-  // Call setPath with new edited path
-  const onEdit = useCallback(() => {
-    if (polygonRef.current) {
-      const nextPath = polygonRef.current
-        .getPath()
-        .getArray()
-        .map(latLng => {
-          return { lat: latLng.lat(), lng: latLng.lng() };
-        });
-      setPath(nextPath);
-    }
-  }, [setPath]);
-
-  // Bind refs to current Polygon and listeners
-  const onLoad = useCallback(
-    polygon => {
-      polygonRef.current = polygon;
-      const path = polygon.getPath();
-      listenersRef.current.push(
-        path.addListener("set_at", onEdit),
-        path.addListener("insert_at", onEdit),
-        path.addListener("remove_at", onEdit)
-      );
-    },
-    [onEdit]
-  );
-
-  // Clean up refs
-  const onUnmount = useCallback(() => {
-    listenersRef.current.forEach(lis => lis.remove());
-    polygonRef.current = null;
-  }, []);
-
-  console.log("The path state is", path);
-                                                                        
+const Map = ({ username }) => {
   return (
-    <div style={{ height: "100%" }}>
-      <LoadScript
-        id="script-loader"
-        googleMapsApiKey=""
-        language="en"
-        region="us"
-      >
-        <GoogleMap
-          mapContainerClassName="App-map"
-          center={{ lat: 52.52047739093263, lng: 13.36653284549709 }}
-          zoom={12}
-          version="weekly"
-          on
-        >
-          <Polygon path={path} onLoad={onLoad} onUnmount={onUnmount} />
-        </GoogleMap>
-      </LoadScript>
-    </div>
+    <Query query={GET_USER_LAND} variables={{ username }}>
+      {({ data, loading, error }) => {
+        const lat = data && data.getUserLand.lat;
+        const lng = data && data.getUserLand.lng;
+
+        const latitude = lat && lat[0];
+        const longitude = lng && lng[lng.length - 1];
+        const coordinates = [];
+
+        const source = {
+          type: "geojson",
+          data: {
+            type: "Feature",
+            properties: {},
+            geometry: {
+              type: "LineString",
+              coordinates: coordinates
+            }
+          }
+        };
+
+        const viewport = {
+          longitude: longitude,
+          latitude: latitude,
+          zoom: 14
+        };
+
+        if (lat) {
+          combineCoord(lat, lng, coordinates);
+        }
+
+        if (loading) {
+          return (
+            <div
+              style={{
+                backgroundColor: "#FFF",
+                height: "100vh",
+                padding: "35% 40%"
+              }}
+            >
+              <img src={require("../../assets/images/spinner.gif")} alt="" />
+            </div>
+          );
+        }
+        if (error) return <div>Error</div>;
+
+        return (
+          <ReactMapGL
+            latitude={latitude}
+            longitude={longitude}
+            // {...viewport}
+            zoom={14}
+            mapStyle="mapbox://styles/mapbox/satellite-v9"
+            height="100%"
+            width="100%"
+            mapboxApiAccessToken={TOKEN}
+            // onViewportChange={this._updateViewport}
+          >
+            <Layer {...userPolygon} source={source} />
+          </ReactMapGL>
+        );
+      }}
+    </Query>
   );
+};
+
+// combine in one array
+function combineCoord(lat, lng, coordinates) {
+  for (let i = 0; i < lat.length; i++) {
+    coordinates.push([lng[i], lat[i]]);
+  }
+  return coordinates;
 }
 
 export default Map;

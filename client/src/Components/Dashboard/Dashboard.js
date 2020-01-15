@@ -220,8 +220,7 @@ function Dashboard() {
                 </div>
                 <div className="column">
                   <div className="div-block-embed" style={{ height: 615 }}>
-                    {/* <Map mapStore={this.props.mapStore} /> */}
-                    <Map />
+                    <Map username={data.getCurrentUser.username} />
                   </div>
                 </div>
               </div>

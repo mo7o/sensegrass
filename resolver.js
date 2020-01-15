@@ -9,10 +9,11 @@ const createToken = (user, secret, expiresIn) => {
 
 exports.resolvers = {
   Query: {
-    // getAllLands: async (root, args, { Land }) => {
-    //   const allLands = await Land.find();
-    //   return allLands;
-    // },
+    getUserLand: async (root, { username }, { Land }) => {
+      const userLand = await Land.findOne({ username });
+      return userLand;
+    },
+
     getCurrentUser: async (root, args, { currentUser, User }) => {
       if (!currentUser) return null;
 
@@ -36,6 +37,15 @@ exports.resolvers = {
         polygonArea
       }).save();
       return newLand;
+    },
+
+    updateUserLand: async (root, { _id, lat, lng, polygonArea }, { Land }) => {
+      const updatedLand = await Land.findOneAndUpdate(
+        { _id },
+        { $set: { lat, lng, polygonArea } },
+        { new: true }
+      );
+      return updatedLand;
     },
 
     signupUser: async (root, { username, email, password }, { User }) => {

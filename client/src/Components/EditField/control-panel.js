@@ -5,7 +5,7 @@ import { Mutation } from "react-apollo";
 
 import { ADD_LAND } from "../../queries";
 
-import "./SelectField.scss";
+import "./EditField.scss";
 
 const defaultContainer = ({ children }) => (
   <div className="control-panel">{children}</div>
@@ -82,7 +82,7 @@ class ControlPanel extends Component {
       this.props.history.push("/");
     });
   };
- 
+
   render() {
     const Container = this.props.containerComponent || defaultContainer;
     const { polygon } = this.props;
@@ -124,5 +124,5 @@ class ControlPanel extends Component {
     );
   }
 }
- 
+
 export default withRouter(ControlPanel);
