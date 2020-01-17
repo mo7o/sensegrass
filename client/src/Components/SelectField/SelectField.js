@@ -7,7 +7,7 @@ import ControlPanel from "./control-panel";
 import { getFeatureStyle, getEditHandleStyle } from "./style";
 
 import "./SelectField.scss";
- 
+
 const TOKEN =
   "pk.eyJ1IjoibW9oaXRtb2pvIiwiYSI6ImNrNHhyN3BtczAyeTQzbmw1bmxzcmdpbnYifQ.mIcgJEcMJClq40PmDeF5NA"; // Set your mapbox token here
 
@@ -86,6 +86,7 @@ class SelectField extends Component {
       featureIndex = features.length - 1;
     }
     const polygon = features && features.length ? features[featureIndex] : null;
+
     return (
       <ControlPanel
         containerComponent={this.props.containerComponent}

@@ -69,7 +69,7 @@ class Map extends React.Component {
               properties: {},
               geometry: {
                 type: "LineString",
-                coordinates
+                coordinates: coordinates
               }
             }
           };

@@ -32,7 +32,7 @@ type Mutation {
 
     addLand(lat: [Float], lng: [Float], username: String, polygonArea: Float): Land
 
-    updateUserLand(_id:ID!, lat: [Float], lng: [Float], polygonArea: Float): Land
+    updateUserLand(_id: ID!, lat: [Float], lng: [Float], polygonArea: Float): Land
 
 }
 

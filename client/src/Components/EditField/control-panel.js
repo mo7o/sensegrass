@@ -38,7 +38,7 @@ class ControlPanel extends Component {
     const lng = [];
     const lat = [];
 
-    console.log(coordinates);
+    if (polygon) console.log(polygon);
 
     if (coordinates) {
       this.getLng(coordinates[0], lng);
