@@ -17,7 +17,7 @@ const initialState = {
   lat: null,
   polygonArea: 0
 };
-
+ 
 class ControlPanel extends Component {
   state = {
     ...initialState

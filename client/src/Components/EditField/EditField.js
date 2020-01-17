@@ -225,12 +225,17 @@ class EditField extends React.Component {
   };
 
   renderUpdateForm = () => {
-    const newPolygon = this.state.data.features[0].geometry.coordinates;
+    const coordinates = this.state.data.features[0].geometry.coordinates;
     const { data, _id, username } = this.state;
 
     if (data && _id && username) {
       return (
-        <UpdateForm newPolygon={newPolygon} _id={_id} username={username} />
+        <UpdateForm
+          coordinates={coordinates}
+          _id={_id}
+          username={username}
+          refetch={this.props.refetch}
+        />
       );
     }
   };
@@ -311,7 +316,10 @@ class EditField extends React.Component {
                   }}
                   layers={[layer]}
                 >
-                  <StaticMap mapboxApiAccessToken={MAPBOX_ACCESS_TOKEN} />
+                  <StaticMap
+                    mapboxApiAccessToken={MAPBOX_ACCESS_TOKEN}
+                    mapStyle="mapbox://styles/mapbox/satellite-v9"
+                  />
                 </DeckGL>
               </div>
               <div className="column">
