@@ -26,6 +26,10 @@ class SelectField extends Component {
     };
   }
 
+  componentDidMount() {
+    console.log(this.props);
+  }
+
   _updateViewport = viewport => {
     this.setState({ viewport });
   };

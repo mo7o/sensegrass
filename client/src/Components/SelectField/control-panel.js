@@ -17,7 +17,7 @@ const initialState = {
   lat: null,
   polygonArea: 0
 };
- 
+
 class ControlPanel extends Component {
   state = {
     ...initialState
@@ -82,7 +82,7 @@ class ControlPanel extends Component {
       this.props.history.push("/");
     });
   };
- 
+
   render() {
     const Container = this.props.containerComponent || defaultContainer;
     const { polygon } = this.props;
@@ -108,7 +108,11 @@ class ControlPanel extends Component {
 
                   <form
                     className="form"
-                    onSubmit={event => this.handleSubmit(event, addLand)}
+                    onSubmit={event =>
+                      polygonArea > 5
+                        ? this.props.history.push("/payment")
+                        : this.handleSubmit(event, addLand)
+                    }
                   >
                     <button className="button is-success" type="submit">
                       Submit
@@ -124,5 +128,5 @@ class ControlPanel extends Component {
     );
   }
 }
- 
+
 export default withRouter(ControlPanel);

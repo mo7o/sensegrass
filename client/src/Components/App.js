@@ -4,13 +4,14 @@ import { withRouter, Switch, Route, Redirect } from "react-router-dom";
 
 import Dashboard from "./Dashboard/Dashboard";
 import Data from "./Data/Data";
+import Payment from "./Payment/Payment";
 import SelectField from "./SelectField/SelectField";
 import EditField from "./EditField/EditField";
 import Signin from "./Auth/Signin";
 import Signup from "./Auth/Signup";
 
 import "bulma/css/bulma.css";
-import "./App.scss";
+// import "./App.scss";
 
 function App({ refetch, session }) {
   return (
@@ -26,6 +27,7 @@ function App({ refetch, session }) {
           path="/settings"
           render={() => <EditField session={session} refetch={refetch} />}
         />
+        <Route path="/payment" component={Payment} />
         <Route path="/signin" render={() => <Signin refetch={refetch} />} />
         <Route path="/signup" render={() => <Signup refetch={refetch} />} />
         <Redirect to="/" />

@@ -122,7 +122,11 @@ class UpdateForm extends Component {
 
                   <form
                     className="form"
-                    onSubmit={event => this.handleSubmit(event, updateUserLand)}
+                    onSubmit={event =>
+                      polygonArea > 5
+                        ? this.props.history.push("/payment")
+                        : this.handleSubmit(event, updateUserLand)
+                    }
                   >
                     <button className="button is-success" type="submit">
                       Submit

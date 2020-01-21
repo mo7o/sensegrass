@@ -219,7 +219,7 @@ function Dashboard() {
                   </div>
                 </div>
                 <div className="column">
-                  <div className="div-block-embed" style={{ height: 615 }}>
+                  <div className="div-block-embed">
                     <Map username={data.getCurrentUser.username} />
                   </div>
                 </div>

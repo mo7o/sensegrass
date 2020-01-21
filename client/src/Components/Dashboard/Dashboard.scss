@@ -14,7 +14,7 @@ html {
 body {
   margin: 0;
   min-height: 100%;
-  background-color: #fff;
+  background-color: rgb(238, 238, 238);
   font-size: 14px;
   line-height: 20px;
   color: #333;
@@ -69,9 +69,158 @@ h6 {
 
 @media only screen and (min-width: 768px) {
   .main {
-    height: 91.5vh;
+    height: 93.5vh;
     width: 100vw;
     overflow: hidden;
+  }
+}
+
+@media (min-height: 550px) {
+  .main {
+    height: 91.5vh;
+  }
+
+  .field-block-2 {
+    .prescription {
+      height: 360px;
+    }
+
+    .field-levels-container {
+      height: 360px;
+    }
+  }
+  .div-block-embed {
+    height: 565px;
+  }
+}
+
+@media (min-height: 600px) {
+  .main {
+    height: 91.5vh;
+  }
+
+  .field-block-2 {
+    .prescription {
+      height: 410px;
+    }
+
+    .field-levels-container {
+      height: 410px;
+    }
+  }
+  .div-block-embed {
+    height: 615px;
+  }
+}
+
+@media (min-height: 768px) {
+  .main {
+    height: 93.5vh;
+  }
+  .field-block-2 {
+    .prescription {
+      height: 450px;
+    }
+
+    .field-levels-container {
+      height: 450px;
+    }
+  }
+
+  .div-block-embed {
+    height: 655px;
+  }
+}
+
+@media (min-height: 800px) {
+  .field-block-2 {
+    .prescription {
+      height: 500px;
+    }
+
+    .field-levels-container {
+      height: 500px;
+    }
+  }
+
+  .div-block-embed {
+    height: 705px;
+  }
+}
+
+@media (min-height: 900px) {
+  .field-block-2 {
+    .prescription {
+      height: 680px;
+    }
+
+    .field-levels-container {
+      height: 680px;
+    }
+  }
+
+  .div-block-embed {
+    height: 885px;
+  }
+}
+
+@media (min-height: 1079px) {
+  .field-block-2 {
+    .prescription {
+      height: 780px;
+    }
+
+    .field-levels-container {
+      height: 780px;
+    }
+  }
+  .div-block-embed {
+    height: 785px;
+  }
+}
+
+@media (min-height: 1200px) {
+  .field-block-2 {
+    .prescription {
+      height: 900px;
+    }
+
+    .field-levels-container {
+      height: 900px;
+    }
+  }
+  .div-block-embed {
+    height: 1105px;
+  }
+}
+
+@media (min-height: 1440px) {
+  .field-block-2 {
+    .prescription {
+      height: 1200px;
+    }
+
+    .field-levels-container {
+      height: 1200px;
+    }
+  }
+  .div-block-embed {
+    height: 1405px;
+  }
+}
+
+@media (min-height: 2160px) {
+  .field-block-2 {
+    .prescription {
+      height: 1900px;
+    }
+
+    .field-levels-container {
+      height: 1900px;
+    }
+  }
+  .div-block-embed {
+    height: 2105px;
   }
 }
 
@@ -97,13 +246,13 @@ h6 {
     background-position: 50% 100%;
     background-size: contain;
     background-repeat: no-repeat;
-    height: 410px;
+    // height: 410px;
     box-shadow: 0 3px 8px -3px rgba(0, 0, 0, 0.41);
   }
 
   .field-levels-container {
     overflow-y: scroll;
-    height: 410px;
+    // height: 410px;
 
     .field-levels {
       padding: 15px;
