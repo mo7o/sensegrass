@@ -1,231 +1,15 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap");
-
-* {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+.main {
+  height: 91.5%;
+  padding: 20px 20px 0;
 }
 
-html {
+.l-1,
+.l-2 {
   height: 100%;
-  font-family: "Montserrat", sans-serif;
-}
-
-body {
-  margin: 0;
-  min-height: 100%;
-  background-color: rgb(238, 238, 238);
-  font-size: 14px;
-  line-height: 20px;
-  color: #333;
-}
-
-img {
-  max-width: 100%;
-  vertical-align: middle;
-  display: inline-block;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-h1 {
-  font-size: 38px;
-  line-height: 44px;
-  margin-top: 20px;
-}
-h2 {
-  font-size: 32px;
-  line-height: 36px;
-  margin-top: 20px;
-}
-h3 {
-  font-size: 24px;
-  line-height: 30px;
-  margin-top: 20px;
-}
-h4 {
-  font-size: 18px;
-  line-height: 24px;
-  margin-top: 10px;
-}
-h5 {
-  font-size: 14px;
-  line-height: 20px;
-  margin-top: 10px;
-}
-h6 {
-  font-size: 12px;
-  line-height: 18px;
-  margin-top: 10px;
-}
-
-@media only screen and (min-width: 768px) {
-  .main {
-    height: 93.5vh;
-    width: 100vw;
-    overflow: hidden;
-  }
-}
-
-@media (min-height: 550px) {
-  .main {
-    height: 91.5vh;
-  }
-
-  .field-block-2 {
-    .prescription {
-      height: 360px;
-    }
-
-    .field-levels-container {
-      height: 360px;
-    }
-  }
-  .div-block-embed {
-    height: 565px;
-  }
-}
-
-@media (min-height: 600px) {
-  .main {
-    height: 91.5vh;
-  }
-
-  .field-block-2 {
-    .prescription {
-      height: 410px;
-    }
-
-    .field-levels-container {
-      height: 410px;
-    }
-  }
-  .div-block-embed {
-    height: 615px;
-  }
-}
-
-@media (min-height: 768px) {
-  .main {
-    height: 93.5vh;
-  }
-  .field-block-2 {
-    .prescription {
-      height: 450px;
-    }
-
-    .field-levels-container {
-      height: 450px;
-    }
-  }
-
-  .div-block-embed {
-    height: 655px;
-  }
-}
-
-@media (min-height: 800px) {
-  .field-block-2 {
-    .prescription {
-      height: 500px;
-    }
-
-    .field-levels-container {
-      height: 500px;
-    }
-  }
-
-  .div-block-embed {
-    height: 705px;
-  }
-}
-
-@media (min-height: 900px) {
-  .field-block-2 {
-    .prescription {
-      height: 680px;
-    }
-
-    .field-levels-container {
-      height: 680px;
-    }
-  }
-
-  .div-block-embed {
-    height: 885px;
-  }
-}
-
-@media (min-height: 1079px) {
-  .field-block-2 {
-    .prescription {
-      height: 780px;
-    }
-
-    .field-levels-container {
-      height: 780px;
-    }
-  }
-  .div-block-embed {
-    height: 785px;
-  }
-}
-
-@media (min-height: 1200px) {
-  .field-block-2 {
-    .prescription {
-      height: 900px;
-    }
-
-    .field-levels-container {
-      height: 900px;
-    }
-  }
-  .div-block-embed {
-    height: 1105px;
-  }
-}
-
-@media (min-height: 1440px) {
-  .field-block-2 {
-    .prescription {
-      height: 1200px;
-    }
-
-    .field-levels-container {
-      height: 1200px;
-    }
-  }
-  .div-block-embed {
-    height: 1405px;
-  }
-}
-
-@media (min-height: 2160px) {
-  .field-block-2 {
-    .prescription {
-      height: 1900px;
-    }
-
-    .field-levels-container {
-      height: 1900px;
-    }
-  }
-  .div-block-embed {
-    height: 2105px;
-  }
 }
 
 .field-block-1 {
-  height: 190px;
+  height: 30%;
   padding: 15px;
   border-radius: 5px;
   background-image: linear-gradient(126deg, #6adf53, #06a232);
@@ -236,56 +20,67 @@ h6 {
 }
 
 .field-block-2 {
-  margin-top: 15px;
+  // margin-top: 15px;
+  padding-top: 17px;
+  height: 72.8%;
+  // overflow: scroll;
+}
 
-  .prescription {
-    padding: 15px;
-    border-radius: 5px;
-    background-color: #fff;
-    background-image: url(../../assets/images/1.png);
-    background-position: 50% 100%;
-    background-size: contain;
-    background-repeat: no-repeat;
-    // height: 410px;
-    box-shadow: 0 3px 8px -3px rgba(0, 0, 0, 0.41);
-  }
-
-  .field-levels-container {
-    overflow-y: scroll;
-    // height: 410px;
-
-    .field-levels {
-      padding: 15px;
-      border-radius: 5px;
-      background-color: #fff;
-      height: 130px;
-      margin-bottom: 15px;
-    }
+@media only screen and (max-width: 768px) {
+  .field-block-2 {
+    overflow: scroll;
   }
 }
 
-.html-embed {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  height: 100%;
-}
-
-.div-block-embed {
-  overflow: scroll;
-  // width: 40%;
-  margin-right: 0px;
-  padding: 10px;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
+.prescription {
+  padding: 15px;
   border-radius: 5px;
   background-color: #fff;
-  box-shadow: 0 6px 16px -3px rgba(0, 0, 0, 0.22);
+  background-image: url(../../assets/images/1.png);
+  background-position: 50% 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 100%;
+  box-shadow: 0 3px 8px -3px rgba(0, 0, 0, 0.41);
 }
+
+@media only screen and (min-width: 769px) {
+  .field-levels-container {
+    overflow: scroll;
+    height: 100%;
+  }
+}
+
+.field-levels {
+  padding: 15px;
+  border-radius: 5px;
+  background-color: #fff;
+  height: 130px;
+  margin-bottom: 15px;
+}
+
+// .html-embed {
+//   display: -webkit-box;
+//   display: -webkit-flex;
+//   display: -ms-flexbox;
+//   display: flex;
+//   width: 100%;
+//   height: 100%;
+// }
+
+// .div-block-embed {
+//   overflow: scroll;
+//   // width: 40%;
+//   margin-right: 0px;
+//   padding: 10px;
+//   -webkit-box-flex: 1;
+//   -webkit-flex: 1;
+//   -ms-flex: 1;
+//   flex: 1;
+//   border-radius: 5px;
+//   background-color: #fff;
+//   box-shadow: 0 6px 16px -3px rgba(0, 0, 0, 0.22);
+// }
 
 .div-block-10 {
   padding: 15px;
@@ -302,15 +97,9 @@ h6 {
   flex: 1;
 }
 
-.div-block-12 {
-  overflow: scroll;
-  width: 40%;
-  margin-right: 0px;
+.dashboard-map {
   padding: 10px;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
+  height: 100%;
   border-radius: 5px;
   background-color: #fff;
   box-shadow: 0 6px 16px -3px rgba(0, 0, 0, 0.22);
@@ -608,11 +397,6 @@ h6 {
   font-size: 15px;
   line-height: 20px;
   font-weight: 400;
-}
-
-.container-main {
-  padding-top: 20px;
-  height: 100%;
 }
 
 .heading-3 {

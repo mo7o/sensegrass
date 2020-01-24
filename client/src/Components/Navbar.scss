@@ -1,7 +1,12 @@
 .navbar {
+  // box-shadow: 1px 1px 20px -12px #000;
+  height: 8.5% !important;
+  // padding: 0 20px;
+  padding-right: 30px;
+  padding-left: 30px;
+  border-bottom: 1px solid rgba(145, 151, 179, 0.13);
+  background-color: #fff;
   box-shadow: 1px 1px 20px -12px #000;
-  height: 60px;
-  padding: 0 20px;
 }
 
 .navbar-dropdown {

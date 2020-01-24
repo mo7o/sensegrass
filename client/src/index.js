@@ -14,6 +14,7 @@ import "./assets/style/default.scss";
 
 const client = new ApolloClient({
   uri: "http://localhost:4444/graphql",
+  // uri: "http://app.sensegrass.com:8080/graphql",
 
   //   to send token to backend
   fetchOptions: {

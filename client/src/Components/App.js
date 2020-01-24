@@ -11,11 +11,11 @@ import Signin from "./Auth/Signin";
 import Signup from "./Auth/Signup";
 
 import "bulma/css/bulma.css";
-// import "./App.scss";
+import "./App.scss";
 
 function App({ refetch, session }) {
   return (
-    <div>
+    <React.Fragment>
       <Switch>
         <Route path="/" exact component={Dashboard} />
         <Route path="/data" component={Data} />
@@ -32,7 +32,7 @@ function App({ refetch, session }) {
         <Route path="/signup" render={() => <Signup refetch={refetch} />} />
         <Redirect to="/" />
       </Switch>
-    </div>
+    </React.Fragment>
   );
 }
 

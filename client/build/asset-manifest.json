@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/static/css/main.a4b26e51.chunk.css",
+    "main.js": "/static/js/main.e392b21c.chunk.js",
+    "main.js.map": "/static/js/main.e392b21c.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.88d4f3f8.js",
+    "runtime-main.js.map": "/static/js/runtime-main.88d4f3f8.js.map",
+    "static/css/2.c4418c31.chunk.css": "/static/css/2.c4418c31.chunk.css",
+    "static/js/2.39af6482.chunk.js": "/static/js/2.39af6482.chunk.js",
+    "static/js/2.39af6482.chunk.js.map": "/static/js/2.39af6482.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.817dc699b9a980664deb918590ccf6da.js": "/precache-manifest.817dc699b9a980664deb918590ccf6da.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.c4418c31.chunk.css.map": "/static/css/2.c4418c31.chunk.css.map",
+    "static/css/main.a4b26e51.chunk.css.map": "/static/css/main.a4b26e51.chunk.css.map",
+    "static/js/2.39af6482.chunk.js.LICENSE": "/static/js/2.39af6482.chunk.js.LICENSE",
+    "static/media/Dashboard.scss": "/static/media/cli-dec-media-social-i-pad-frr-large.5cbd7a52.png",
+    "static/media/Auth.scss": "/static/media/LoginBG-min.41b4909c.png",
+    "static/media/spinner.gif": "/static/media/spinner.58da3c6d.gif"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.88d4f3f8.js",
+    "static/css/2.c4418c31.chunk.css",
+    "static/js/2.39af6482.chunk.js",
+    "static/css/main.a4b26e51.chunk.css",
+    "static/js/main.e392b21c.chunk.js"
+  ]
+}
