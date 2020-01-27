@@ -17,7 +17,11 @@ function App({ refetch, session }) {
   return (
     <React.Fragment>
       <Switch>
-        <Route path="/" exact component={Dashboard} />
+        {session && session.getCurrentUser ? (
+          <Route path="/" exact component={Dashboard} />
+        ) : (
+          <Route path="/signin" render={() => <Signin refetch={refetch} />} />
+        )}
         <Route path="/data" component={Data} />
         <Route
           path="/select-field"
@@ -28,9 +32,14 @@ function App({ refetch, session }) {
           render={() => <EditField session={session} refetch={refetch} />}
         />
         <Route path="/payment" component={Payment} />
-        <Route path="/signin" render={() => <Signin refetch={refetch} />} />
+
         <Route path="/signup" render={() => <Signup refetch={refetch} />} />
-        <Redirect to="/" />
+
+        {session && session.getCurrentUser ? (
+          <Redirect to="/" />
+        ) : (
+          <Redirect to="/signin" />
+        )}
       </Switch>
     </React.Fragment>
   );

@@ -14,7 +14,7 @@ class Signin extends React.Component {
   state = {
     ...initialState
   };
- 
+
   clearState = () => {
     this.setState({ ...initialState });
   };
@@ -30,7 +30,6 @@ class Signin extends React.Component {
     event.preventDefault();
 
     SigninUser().then(async ({ data }) => {
-      // console.log(data);
       localStorage.setItem("token", data.signinUser.token);
       await this.props.refetch();
       this.clearState();

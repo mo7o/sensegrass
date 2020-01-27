@@ -44,6 +44,12 @@
   }
 }
 
+@media only screen and (max-width: 768px) {
+  .add-device {
+    display: none;
+  }
+}
+
 .text-field {
   margin-bottom: 0px;
   padding-left: 20px;
